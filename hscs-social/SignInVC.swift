@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
 
 class SignInVC: UIViewController {
 
@@ -18,12 +19,13 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            performSegue(withIdentifier: "goToFeed", sender: nil)
+        }
     }
 
     @IBAction func facebookBtnTapped(_ sender: AnyObject) {
@@ -41,7 +43,6 @@ class SignInVC: UIViewController {
                 self.firebaseAuth(credential)
             }
         }
-        
     }
     
     func firebaseAuth(_ credential: FIRAuthCredential) {
@@ -50,10 +51,10 @@ class SignInVC: UIViewController {
                 print("HSCS: Unable to authenticate with Firebase - \(error)")
             } else {
                 print("HSCS: Successfully authenticated with Firebase")
-//                if let user = user {
-//                    let userData = ["provider": credential.provider]
-//                    self.completeSignIn(id: user.uid, userData: userData)
-//                }
+                if let user = user {
+                    let userData = ["provider": credential.provider]
+                    self.completeSignIn(id: user.uid)
+                }
             }
         })
     }
@@ -63,25 +64,31 @@ class SignInVC: UIViewController {
             FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
                 if error == nil {
                     print("HSCS: Email user authenticated with Firebase")
-//                    if let user = user {
-//                        let userData = ["provider": user.providerID]
-//                        self.completeSignIn(id: user.uid, userData: userData)
-//                    }
+                    if let user = user {
+                        let userData = ["provider": user.providerID]
+                        self.completeSignIn(id: user.uid)
+                    }
                 } else {
                     FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
                         if error != nil {
                             print("HSCS: Unable to authenticate with Firebase using email")
                         } else {
                             print("HSCS: Successfully authenticated with Firebase")
-//                            if let user = user {
-//                                let userData = ["provider": user.providerID]
-//                                self.completeSignIn(id: user.uid, userData: userData)
-//                            }
+                            if let user = user {
+                                let userData = ["provider": user.providerID]
+                                self.completeSignIn(id: user.uid)
+                            }
                         }
                     })
                 }
             })
         }
+    }
+    
+    func completeSignIn(id: String) {
+        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("HSCS: Data saved to keychain")
+        performSegue(withIdentifier: "goToFeed", sender: nil)
     }
 }
 

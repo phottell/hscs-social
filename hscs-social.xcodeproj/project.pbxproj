@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		49DAEB1714A12A4CA4D92F3F /* Pods_hscs_social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99098CEC753DB3865C61D37F /* Pods_hscs_social.framework */; };
 		E45A4D8C1E21C2580074E73F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E45A4D8B1E21C2580074E73F /* GoogleService-Info.plist */; };
+		E45A4D8E1E21E7640074E73F /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A4D8D1E21E7640074E73F /* FeedVC.swift */; };
 		E47B765A1E1EF0F90070F2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B76591E1EF0F90070F2E8 /* AppDelegate.swift */; };
 		E47B765C1E1EF0F90070F2E8 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B765B1E1EF0F90070F2E8 /* SignInVC.swift */; };
 		E47B765F1E1EF0F90070F2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47B765D1E1EF0F90070F2E8 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		B2853B721B3C530A83879BF8 /* Pods-hscs-social.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hscs-social.release.xcconfig"; path = "Pods/Target Support Files/Pods-hscs-social/Pods-hscs-social.release.xcconfig"; sourceTree = "<group>"; };
 		E45A4D8A1E21B6E20074E73F /* hscs-social.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "hscs-social.entitlements"; sourceTree = "<group>"; };
 		E45A4D8B1E21C2580074E73F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E45A4D8D1E21E7640074E73F /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		E47B76561E1EF0F90070F2E8 /* hscs-social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hscs-social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47B76591E1EF0F90070F2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E47B765B1E1EF0F90070F2E8 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				E47B765B1E1EF0F90070F2E8 /* SignInVC.swift */,
+				E45A4D8D1E21E7640074E73F /* FeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				E47B767A1E21A6E50070F2E8 /* CoolButton.swift in Sources */,
 				E47B76781E21A5B10070F2E8 /* CoolField.swift in Sources */,
 				E47B76761E21A4290070F2E8 /* RoundButton.swift in Sources */,
+				E45A4D8E1E21E7640074E73F /* FeedVC.swift in Sources */,
 				E47B76711E21A1EC0070F2E8 /* CoolView.swift in Sources */,
 				E47B765A1E1EF0F90070F2E8 /* AppDelegate.swift in Sources */,
 				E47B76741E21A2750070F2E8 /* Constants.swift in Sources */,
