@@ -62,6 +62,6 @@
 		<string>fbshareextension</string>
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need photo acces for your avatar</string>
+	<string>Access to phots is required for posting</string>
 </dict>
 </plist>
